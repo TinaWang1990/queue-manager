@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  # backend:
+  #   build: .
+  #   ports:
+  #     - "8000:8000"
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     DATABASE_URL: postgresql://queueapp:queueapp@db:5432/queueapp
+
+  db:
+    image: postgres:15
+    container_name: queuedb
+    environment:
+      POSTGRES_USER: queueapp
+      POSTGRES_PASSWORD: queueapp
+      POSTGRES_DB: queueapp
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

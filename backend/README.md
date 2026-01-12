@@ -1,30 +1,14 @@
-backend/
-├── app/
-│   ├── main.py
-│   ├── database.py
-│   ├── dependencies.py
-│   ├── core/
-│   │   ├── config.py
-│   │   ├── security.py
-│   ├── models/
-│   │   ├── __init__.py
-│   │   ├── queue.py
-│   │   ├── user.py
-│   │   ├── queue_entry.py
-│   │   ├── admin.py
-│   │   └── note.py
-│   ├── schemas/
-│   │   ├── queue.py
-│   │   ├── patient.py
-│   │   ├── admin.py
-│   ├── routers/
-│   │   ├── queues.py
-│   │   ├── patient.py
-│   │   ├── admin.py
-│   │   └── root.py
-│   └── services/
-│       ├── wait_time.py
-│       └── sms.py
-├── alembic/
-├── requirements.txt
-├── Dockerfile
+# Run appilcation
+```
+./run.sh start
+```
+
+# databse migration
+ ```
+ pip install alembic
+ cd backend
+ alembic init alembic
+ #config files under alembic
+ alembic revision --autogenerate -m "add_address_and_image_to_queue"
+ alembic upgrade head
+ ```
